@@ -22,7 +22,9 @@ exports.loginValidation = [
 exports.validator = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(422).json({ errors: errors.array() });
+    return res
+      .status(422)
+      .json({ status: false, message: "All fields is required" });
   }
   next();
 };
